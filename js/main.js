@@ -18,9 +18,12 @@ function isEmpty() {
 }
 
 function isEmailExist() {
+  console.log('Checking email existence');
     for (var i = 0; i < signUpArray.length; i++) {
         if (signUpArray[i].email.toLowerCase() == signupEmail.value.toLowerCase()) {
-            return false
+            return true
+        } else{
+            return false;
         }
     }
 }
@@ -94,4 +97,9 @@ function login() {
 function logout() {
     localStorage.removeItem('sessionUsername')
     location.replace('/index.html')
+}
+
+const userName = localStorage.getItem('sessionUsername')
+if (userName) {
+    document.getElementById('username').innerHTML = "Hello, " + userName
 }
